@@ -1,0 +1,46 @@
+while True:
+    print("Welcome to Simple Calculator!")
+    print("Please enter two numbers and select an operation.")
+
+    # Prompt the user for the first number, validating if it's a valid number
+    while True:
+        first_number = input("Enter the first number: ")
+        if first_number.lstrip('-').replace('.', '', 1).isdigit():  # Handles negative and floating-point numbers
+            break
+        else:
+            print("Error: Please enter a valid number.")
+
+    # Prompt the user for the second number, validating if it's a valid number
+    while True:
+        second_number = input("Enter the second number: ")
+        if second_number.lstrip('-').replace('.', '', 1).isdigit():  # Handles negative and floating-point numbers
+            break
+        else:
+            print("Error: Please enter a valid number.")
+
+    # Prompt the user to choose an operation
+    operation = input("Choose an operation (+, -, *, /): ")
+
+    # Convert the values of first_number and second_number from string to float
+    first_number = float(first_number)
+    second_number = float(second_number)
+
+    # Perform the calculation based on the chosen operation
+    if operation == "+":
+        print("The result of the addition is", first_number + second_number)
+    elif operation == "-":
+        print("The result of the subtraction is", first_number - second_number)
+    elif operation == "*":
+        print("The result of the multiplication is", first_number * second_number)
+    elif operation == "/":
+        if second_number != 0:
+            print("The result of the division is", first_number / second_number)
+        else:
+            print("Error: Division by zero is not allowed.")
+    else:
+        print("Invalid operation type. Please choose from +, -, *, /.")
+
+    # Ask if the user wants to perform another calculation
+    repeat = input("Do you want to perform another calculation? (Y/N): ")
+    if repeat.lower() != "y":
+        break
